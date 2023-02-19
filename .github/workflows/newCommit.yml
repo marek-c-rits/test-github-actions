@@ -6,7 +6,6 @@ on:
     paths:
       - '**' # matches any change
 
-
 jobs:
   init:
     name: Init
