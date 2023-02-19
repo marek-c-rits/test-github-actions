@@ -6,7 +6,7 @@ on:
       - main #Only run tests on PRs to main
 
 jobs:
-  PrInit:
+  init:
     name: PrInit
     runs-on: ubuntu-latest
     steps:

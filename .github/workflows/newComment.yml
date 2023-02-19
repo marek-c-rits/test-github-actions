@@ -1,0 +1,15 @@
+name: newComment
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  init:
+    name: commentInit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment Hello World
+        id: commentHelloWorld
+        run: |
+          echo "Comment Hello World"
+          

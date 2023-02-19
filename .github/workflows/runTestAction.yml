@@ -9,7 +9,7 @@ on:
         description: 'Test input 1'
 
 jobs:
-  runInit:
+  init:
     name: runInit
     runs-on: ubuntu-latest
     steps:
