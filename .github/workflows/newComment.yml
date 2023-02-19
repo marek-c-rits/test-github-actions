@@ -18,19 +18,21 @@ jobs:
   dispatch-run:
     name: dispatchRun
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/run ')
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - name: Dispatch Run for comment
+        if: startsWith(github.event.comment.body, '/run ')
         id: init
         run: |
-          echo "Dispatch run Hello World" github.event.comment.body
+          echo "Dispatch run Hello World" ${{ github.event.comment.body }}
 
   dispatch-rerun:
     name: dispatchRerun
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/rerun ')
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - name: Dispatch Rerun for comment
+        if: startsWith(github.event.comment.body, '/rerun ')
         id: init
         run: |
-          echo "Dispatch rerun Hello World" github.event.comment.body
+          echo "Dispatch rerun Hello World" ${{ github.event.comment.body }}
