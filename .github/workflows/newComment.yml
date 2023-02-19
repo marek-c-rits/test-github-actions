@@ -18,10 +18,9 @@ jobs:
   dispatch-run:
     name: dispatchRun
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/run ') }}
     steps:
       - name: Dispatch Run for comment
-        if: startsWith(github.event.comment.body, '/run ')
         id: init
         run: |
           echo "Dispatch run Hello World" ${{ github.event.comment.body }}
@@ -29,10 +28,9 @@ jobs:
   dispatch-rerun:
     name: dispatchRerun
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/rerun ') }}
     steps:
       - name: Dispatch Rerun for comment
-        if: startsWith(github.event.comment.body, '/rerun ')
         id: init
         run: |
           echo "Dispatch rerun Hello World" ${{ github.event.comment.body }}
