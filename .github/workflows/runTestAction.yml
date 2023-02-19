@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       input1:
-        description: 'Test input 1'
-        default: 'testString1'
-        required: true
         type: string
+        required: false
+        default: 'testString1'
+        description: 'Test input 1'
 
 jobs:
   runInit:
