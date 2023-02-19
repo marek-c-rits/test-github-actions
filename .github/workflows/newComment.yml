@@ -2,8 +2,6 @@ name: newComment
 on:
   issue_comment:
     types: [created]
-  discussion_comment:
-    types: [created]
 
 jobs:
   init:
@@ -14,4 +12,13 @@ jobs:
         id: commentHelloWorld
         run: |
           echo "Comment Hello World"
-          
+
+  dispatch-run:
+    name: dispatchRun
+    runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/run')
+    steps:
+      - name: Dispatch Run for comment
+        id: init
+        run: |
+          echo "Dispatch run Hello World"
