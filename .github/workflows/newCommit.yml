@@ -12,7 +12,7 @@ jobs:
     name: Init
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        id: helloWorld
+      - name: Commit Hello World
+        id: commitHelloWorld
         run: |
-          echo "Hello World Test"
+          echo "New Commit Hello World"

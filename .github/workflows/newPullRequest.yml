@@ -1,0 +1,16 @@
+name: NewPullRequestToMain
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches:
+      - main #Only run tests on PRs to main
+
+jobs:
+  PrInit:
+    name: PrInit
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR Hello World
+        id: prHelloWorld
+        run: |
+          echo "PR Hello World"

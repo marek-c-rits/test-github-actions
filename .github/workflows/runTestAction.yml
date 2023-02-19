@@ -1,0 +1,19 @@
+name: runTestAction
+on:
+  workflow_dispatch:
+    inputs:
+      input1:
+        description: 'Test input 1'
+        default: 'testString1'
+        required: true
+        type: string
+
+jobs:
+  runInit:
+    name: runInit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Hello World
+        id: runHelloWorld
+        run: |
+          echo "RUN Hello World" ${{ inputs.input1 }}
