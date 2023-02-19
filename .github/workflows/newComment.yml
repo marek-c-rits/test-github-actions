@@ -24,3 +24,13 @@ jobs:
         id: init
         run: |
           echo "Dispatch run Hello World"
+
+  dispatch-rerun:
+    name: dispatchRerun
+    runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/rerun')
+    steps:
+      - name: Dispatch Rerun for comment
+        id: init
+        run: |
+          echo "Dispatch rerun Hello World"
