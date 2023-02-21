@@ -1,0 +1,11 @@
+name: runTestAction
+
+jobs:
+  init:
+    name: runInit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Hello World
+        id: runHelloWorld
+        run: |
+          echo "[task] RUN Hello World" ${{ inputs.input1 }}
