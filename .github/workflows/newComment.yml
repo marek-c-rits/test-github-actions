@@ -5,6 +5,8 @@ on:
   discussion_comment:
     types: [created]
 
+permissions: write-all
+
 jobs:
   init:
     name: commentInit
@@ -33,8 +35,9 @@ jobs:
         with:
           sha: ${{ github.sha }}
 #          token: ${{ steps.get_installation_token.outputs.token }}
-          token: ${{ github.token }}
-          name: Second Job
+#          token: ${{ github.token }}
+          token: ${{ secret.MAREK_TOKEN_2 }}
+          name: Second Job 1
           status: in_progress
 
       - name: Trigger Workflow
@@ -47,8 +50,9 @@ jobs:
         with:
           sha: ${{ github.sha }}
 #          token: ${{ steps.get_installation_token.outputs.token }}
-          token: ${{ github.token }}
-          name: Second Job
+#          token: ${{ github.token }}
+          token: ${{ secret.MAREK_TOKEN_2 }}
+          name: Second Job Failure() 2
           conclusion: ${{ job.status }}
           output: |
             {"summary":""}
