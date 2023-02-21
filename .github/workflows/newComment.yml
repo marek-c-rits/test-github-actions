@@ -91,4 +91,4 @@ jobs:
       - name: Dispatch Rerun for comment
         id: init
         run: |
-          echo "[main] Dispatch rerun Hello World" ${{ github.event.comment.body }}
+          echo "[task] Dispatch rerun Hello World" ${{ github.event.comment.body }}

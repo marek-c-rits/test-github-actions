@@ -1,2 +1,2 @@
 console.log('===JS newCommit');
-console.log('===test1');
+console.log('===test2');

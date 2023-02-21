@@ -23,4 +23,4 @@ jobs:
       - name: Run Hello World
         id: runHelloWorld
         run: |
-          echo "[main] RUN Hello World" ${{ inputs.input1 }}
+          echo "[task] RUN Hello World" ${{ inputs.input1 }}
