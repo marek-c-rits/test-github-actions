@@ -10,8 +10,23 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@v3
+
     - name: Run Hello World
       id: runHelloWorld
       shell: bash
       run: |
         echo "[task] RUN Hello World" ${{ inputs.input1 }}
+
+    - uses: LouisBrunner/checks-action@v1.3.1
+      if: always()
+      with:
+        sha: ${{ github.sha }}
+#        token: ${{ steps.get_installation_token.outputs.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Second Job
+        conclusion: ${{ job.status }}
+#        details_url: https://josh-ops.com/posts/github-code-coverage/
+#        action_url: https://josh-ops.com/posts/github-code-coverage/
+        output: |
+          {"summary":""}

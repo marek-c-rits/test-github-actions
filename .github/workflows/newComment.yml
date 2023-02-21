@@ -45,7 +45,7 @@ jobs:
 #          token: ${{ github.token }}
           token: ${{ secrets.GITHUB_TOKEN }}
 #          token: ${{ secrets.MAREK_TOKEN_2 }}
-          name: Second Job 1
+          name: Second Job
           status: in_progress
 
       - name: Trigger Workflow
@@ -61,7 +61,7 @@ jobs:
 #          token: ${{ github.token }}
           token: ${{ secrets.GITHUB_TOKEN }}
 #          token: ${{ secrets.MAREK_TOKEN_2 }}
-          name: Second Job Failure() 2
+          name: Second Job
           conclusion: ${{ job.status }}
           output: |
             {"summary":""}
