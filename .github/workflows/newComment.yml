@@ -25,6 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: ${{ github.event.comment.body }}
+          separator: ' '
+          maxsplit: 2
+
       - name: Dispatch Run for comment
         id: init
         run: |
@@ -44,7 +51,7 @@ jobs:
       - name: Trigger Workflow
         uses: ./.github/actions/runTestAction
         with:
-          input1: testFromNewCommentWorkflow1
+          input1: ${{ steps.split.outputs._1 }} [${{ steps.split.outputs.length }}]
 
       - uses: LouisBrunner/checks-action@v1.3.1
         if: failure()
