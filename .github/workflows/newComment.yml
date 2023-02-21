@@ -24,6 +24,19 @@ jobs:
         id: init
         run: |
           echo "[main] Dispatch run Hello World" ${{ github.event.comment.body }}
+      - name: Trigger Workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'runTestAction.yml',
+              ref: '${{ github.head_ref }}',
+              inputs: {
+                "input1": "testFromNewCommentWorkflow1",
+              }
+            })
 
   dispatch-rerun:
     name: dispatchRerun
