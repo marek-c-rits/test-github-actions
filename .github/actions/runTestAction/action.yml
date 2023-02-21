@@ -6,6 +6,9 @@ inputs:
     required: false
     default: testString1
     description: Test input 1
+  token:
+    required: true
+    description: Token
 
 runs:
   using: composite
@@ -23,7 +26,7 @@ runs:
       with:
         sha: ${{ github.sha }}
 #        token: ${{ steps.get_installation_token.outputs.token }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ inputs.token }}
         name: Second Job
         conclusion: ${{ job.status }}
 #        details_url: https://josh-ops.com/posts/github-code-coverage/

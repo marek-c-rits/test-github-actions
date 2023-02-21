@@ -52,6 +52,7 @@ jobs:
         uses: ./.github/actions/runTestAction
         with:
           input1: ${{ steps.split.outputs._1 }} [${{ steps.split.outputs.length }}]
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: LouisBrunner/checks-action@v1.3.1
         if: failure()
