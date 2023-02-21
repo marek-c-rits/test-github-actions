@@ -1,11 +1,17 @@
 name: runTestAction
+description: Run test action description
 
-jobs:
-  init:
-    name: runInit
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Hello World
-        id: runHelloWorld
-        run: |
-          echo "[task] RUN Hello World" ${{ inputs.input1 }}
+inputs:
+  input1:
+    required: false
+    default: testString1
+    description: Test input 1
+
+runs:
+  using: composite
+  steps:
+    - name: Run Hello World
+      id: runHelloWorld
+      shell: bash
+      run: |
+        echo "[task] RUN Hello World" ${{ inputs.input1 }}
