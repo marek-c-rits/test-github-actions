@@ -36,7 +36,7 @@ jobs:
           sha: ${{ github.sha }}
 #          token: ${{ steps.get_installation_token.outputs.token }}
 #          token: ${{ github.token }}
-          token: ${{ secret.MAREK_TOKEN_2 }}
+          token: ${{ secrets.MAREK_TOKEN_2 }}
           name: Second Job 1
           status: in_progress
 
@@ -51,7 +51,7 @@ jobs:
           sha: ${{ github.sha }}
 #          token: ${{ steps.get_installation_token.outputs.token }}
 #          token: ${{ github.token }}
-          token: ${{ secret.MAREK_TOKEN_2 }}
+          token: ${{ secrets.MAREK_TOKEN_2 }}
           name: Second Job Failure() 2
           conclusion: ${{ job.status }}
           output: |
