@@ -4,6 +4,8 @@ on:
     types: [created]
   discussion_comment:
     types: [created]
+  pull_request:
+  workflow_dispatch:
 
 permissions: write-all
 
@@ -46,7 +48,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 #          token: ${{ secrets.MAREK_TOKEN_2 }}
           name: Second Job
-          status: in_progress
+#          status: in_progress
 
       - name: Trigger Workflow
         uses: ./.github/actions/runTestAction
@@ -64,6 +66,19 @@ jobs:
 #          token: ${{ secrets.MAREK_TOKEN_2 }}
           name: Second Job
           conclusion: ${{ job.status }}
+          output: |
+            {"summary":""}
+
+      - uses: LouisBrunner/checks-action@v1.3.1
+        if: always()
+        with:
+          sha: ${{ github.sha }}
+          #        token: ${{ steps.get_installation_token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Second Job
+          conclusion: ${{ job.status }}
+          #        details_url: https://josh-ops.com/posts/github-code-coverage/
+          #        action_url: https://josh-ops.com/posts/github-code-coverage/
           output: |
             {"summary":""}
 
