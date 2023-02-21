@@ -35,7 +35,7 @@ jobs:
       - name: Dispatch Run for comment
         id: init
         run: |
-          echo "[task] Dispatch run Hello World" ${{ github.event.comment.body }}
+          echo "[task] Dispatch run Hello World" ${{ github.event.comment.body }} "with Token: " ${{ secrets.GITHUB_TOKEN }}
 
       - uses: LouisBrunner/checks-action@v1.3.1
         id: check
