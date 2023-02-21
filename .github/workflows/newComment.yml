@@ -20,14 +20,19 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/run ') }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Dispatch Run for comment
         id: init
         run: |
-          echo "[main] Dispatch run Hello World" ${{ github.event.comment.body }}
+          echo "[task] Dispatch run Hello World" ${{ github.event.comment.body }}
+
       - name: Trigger Workflow
         uses: ./.github/workflows/runTestAction.yml
         with:
           input1: testFromNewCommentWorkflow1
+
 
   dispatch-rerun:
     name: dispatchRerun
