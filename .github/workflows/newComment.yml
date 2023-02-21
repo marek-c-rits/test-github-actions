@@ -48,6 +48,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 #          token: ${{ secrets.MAREK_TOKEN_2 }}
           name: Second Job
+          conclusion: ${{ job.status }}
 #          status: in_progress
 
       - name: Trigger Workflow
