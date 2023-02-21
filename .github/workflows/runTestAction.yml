@@ -1,10 +1,10 @@
 name: runTestAction
 on:
-  push:
-    branches:
-      - '**' # matches every branch
-    paths:
-      - '**' # matches any change
+#  push:
+#    branches:
+#      - '**' # matches every branch
+#    paths:
+#      - '**' # matches any change
   workflow_dispatch:
     inputs:
       input1:
